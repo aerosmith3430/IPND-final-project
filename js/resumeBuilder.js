@@ -17,14 +17,12 @@ var education = {};
 education["name"] = "Southern Oregon University";
 education["years_attended"] = "1995 - 1999";
 education["city"] = "Ashland";
-
 // Dot notation
 var work = {};
 work.current_position = "Accountant";
 work.employer = "Vanport";
 work.years_worked = "11";
 work.city = "Boring";
-
 // JSON
 var edu = {
 	"schools": [
@@ -43,41 +41,76 @@ var edu = {
 	]
 }
 */
+/*
+var clickLocations = [];
+function logClicks(x,y) {
+  clickLocations.push(
+    {
+      x: x,
+      y: y
+    }
+  );
+  console.log('x location: ' + x + '; y location: ' + y);
+}
+$(document).click(function(loc) {
+	var x = loc.pageX;
+	var y = loc.pageY;
+  	logClicks(x,y);
+});
+$("#main").append(internationalizeButton);
+function inName(name) {
+	var full_name = name;
+	var name_array = full_name.split(" ");
+	name_array[1] = name_array[1].toUpperCase();
+	full_name = name_array.join(" ");
+	return full_name;
+}
+*/
 
+//Encapsulation - hold inside
+//Adds a display property to the projects object and sets
+//the display property equal to a function.
+//Encapsulation holds the display function inside the
+//project object.
 //Object Literal Notation
+//Lines 1 -75 above were notes from taking the class.
 
+// Biographical JSON object
 var bio = {
 	"name": "Aaron Smith",
 	"skills": ["HTML", "CSS", "Python", "JS", "Ruby"],
 	"role": "Web developer",
 	"contacts": {
 		"email": "aerosmith3430@gmail.com",
-		"mobile": "503-516-3769",
+		"mobile": "503-516-xxxx",
 		"github": "http://www.github.com/aerosmith3430",
 		"location": "Gresham, OR"
 	},
 	"biopic" : "images/fry.jpg",
-	"welcome_message" : "Taking classes to transition into web development."
+	"welcomeMessage" : "Taking classes to transition into web development."
 };
 
+// Work history JSON object
 var work = {
 	"jobs": [
 		{
 			"employer": "Vanport",
 			"title": "Accountant",
 			"location": "Boring, OR",
-			"dates_worked": "2005-present",
+			"dates": "2005-present",
 			"description": "Accountant for $100M wood products business with Canadian subsidiary and Japan as main market."
 		},
 		{
 			"employer": "Morrison Center",
 			"title": "GL Accountant",
 			"location": "Portland, OR",
-			"dates_worked": "1999-2005",
+			"dates": "1999-2005",
 			"description": "Accounting assistant for non-profit children’s services agency with offices and programs throughout the Portland metro area."
 		}
 	]
-}
+};
+
+// Project history JSON object
 var projects = {
 	"projects": [
 		{
@@ -99,8 +132,9 @@ var projects = {
 			"image": "images/travel_blog.png"
 		}
 	]
-}
+};
 
+// Education history JSON object
 var education = {
 	"schools": [
 		{
@@ -111,7 +145,13 @@ var education = {
 			"major": "Accounting"
 		}
 	],
-	"online_courses": [
+	"onlineCourses": [
+		{
+			"title": "Intro to Programming Nanodegree",
+			"school": "Udacity",
+			"dates": "October 2016-present",
+			"url": "http://www.udacity.com"
+		},
 		{
 			"title": "Skillcrush Front-End Developer Blueprint",
 			"school": "Skillcrush",
@@ -125,24 +165,34 @@ var education = {
 			"url": "http://www.flatiron.com"
 		}
 	]
-}
+};
 
+// Holding the display function within the bio object.  
+// This function takes in the values defined in the bio object, replaces the placeholder 
+// data in the helper.js file and saves it to a variable.
+// The variables are then appended to the div with the id header.
+// The contacts are appended to an unordered list within the header div.
+// Lastly, the display function is called to display the information on the web page.
 bio.display = function() {
-	var bioName = HTMLheaderName.replace("%data%", bio.name);
-	$("#header").append(bioName);
-	var bioRole = HTMLheaderRole.replace("%data%", bio.role);
-	$("#header").append(bioRole);
-	var bioPic = HTMLbioPic.replace("%data%", bio.biopic);
-	$("#header").append(bioPic);
+	var formattedBioRole = HTMLheaderRole.replace("%data%", bio.role);
+	$("#header").prepend(formattedBioRole);
+	var formattedBioName = HTMLheaderName.replace("%data%", bio.name);
+	$("#header").prepend(formattedBioName);
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+	$("#header").append(formattedBioPic);
 
-	var mobileNum = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$("#topContacts").append(mobileNum);
-	var email = HTMLemail.replace("%data%", bio.contacts.email);
-	$("#topContacts").append(email);
-	var github = HTMLgithub.replace("%data%", bio.contacts.github);
-	$("#topContacts").append(github);
-	var welcome_message = HTMLwelcomeMsg.replace("%data%", bio.welcome_message);
-	$("#header").append(welcome_message);
+	var formattedMobileNum = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#topContacts").append(formattedMobileNum);
+	$("#footerContacts").append(formattedMobileNum);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#topContacts").append(formattedEmail);
+	$("#footerContacts").append(formattedEmail);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#topContacts").append(formattedGithub);
+	$("#footerContacts").append(formattedGithub);
+
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	$("#header").append(formattedWelcomeMessage);
 
 	if(bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
@@ -156,6 +206,11 @@ bio.display = function() {
 
 bio.display();
 
+// Holding the display function within the work object.  
+// This function takes in the values defined in the work object, replaces the placeholder 
+// data in the helper.js file and saves it to a variable.
+// The variables are then appended to the div with the id workExperience.
+// Lastly, the display function is called to display the information on the web page.
 work.display = function() {
 	for(var i = 0; i < work.jobs.length; i++) {
 		$("#workExperience").append(HTMLworkStart);
@@ -164,7 +219,7 @@ work.display = function() {
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
 		var comboEmpTitle = formattedEmployer + formattedTitle;
 		$(".work-entry:last").append(comboEmpTitle);
-		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates_worked);
+		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
 		$(".work-entry:last").append(formattedDates);
 		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
 		$(".work-entry:last").append(formattedLocation);
@@ -175,44 +230,11 @@ work.display = function() {
 
 work.display();
 
-/*
-var clickLocations = [];
-
-function logClicks(x,y) {
-  clickLocations.push(
-    {
-      x: x,
-      y: y
-    }
-  );
-  console.log('x location: ' + x + '; y location: ' + y);
-}
-
-$(document).click(function(loc) {
-	var x = loc.pageX;
-	var y = loc.pageY;
-
-  	logClicks(x,y);
-});
-
-
-$("#main").append(internationalizeButton);
-
-function inName(name) {
-	var full_name = name;
-	var name_array = full_name.split(" ");
-	name_array[1] = name_array[1].toUpperCase();
-	full_name = name_array.join(" ");
-
-	return full_name;
-}
-*/
-
-//Encapsulation - hold inside
-//Adds a display property to the projects object and sets
-//the display property equal to a function.
-//Encapsulation holds the display function inside the
-//project object.
+// Holding the display function within the projects object.  
+// This function takes in the values defined in the projects object, replaces the placeholder 
+// data in the helper.js file and saves it to a variable.
+// The variables are then appended to the div with the id projects.
+// Lastly, the display function is called to display the information on the web page.
 projects.display = function() {
 	for(var i = 0; i < projects.projects.length; i++) {
 		$("#projects").append(HTMLprojectStart);
@@ -230,6 +252,11 @@ projects.display = function() {
 
 projects.display();
 
+// Holding the display function within the education object.  
+// This function takes in the values defined in the education object, replaces the placeholder 
+// data in the helper.js file and saves it to a variable.
+// The variables are then appended to the div with the id education.
+// Lastly, the display function is called to display the information on the web page.
 education.display = function() {
 	for(var i = 0; i < education.schools.length; i++) {
 		$("#education").append(HTMLschoolStart);
@@ -248,26 +275,21 @@ education.display = function() {
 
 $("#education").append(HTMLonlineClasses);
 
-	for(var i = 0; i < education.online_courses.length; i++) {		
+	for(var i = 0; i < education.onlineCourses.length; i++) {		
+		$("#education").append(HTMLschoolStart);
 
-		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.online_courses[i].title);
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
 		$(".education-entry:last").append(formattedOnlineTitle);
-		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.online_courses[i].school);
+		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
 		$(".education-entry:last").append(formattedOnlineSchool);
-		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.online_courses[i].dates);
+		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
 		$(".education-entry:last").append(formattedOnlineDates);
-		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.online_courses[i].url);
+		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
 		$(".education-entry:last").append(formattedOnlineURL);
 	}
 }
 
 education.display();
 
+// This appends a Google Map to the id mapDiv
 $("#mapDiv").append(googleMap);
-
-var mobileNum = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#footerContacts").append(mobileNum);
-var email = HTMLemail.replace("%data%", bio.contacts.email);
-$("#footerContacts").append(email);
-var github = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#footerContacts").append(github);
