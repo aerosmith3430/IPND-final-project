@@ -1,94 +1,94 @@
 // Biographical JSON object
 var bio = {
-	"name": "Aaron Smith",
-	"skills": ["HTML", "CSS", "Python", "JS", "Ruby"],
-	"role": "Web developer",
-	"contacts": {
-		"email": "aerosmith3430@gmail.com",
-		"mobile": "503-516-xxxx",
-		"github": "http://www.github.com/aerosmith3430",
-		"location": "Gresham, OR"
+	'name': 'Aaron Smith',
+	'skills': ['HTML', 'CSS', 'Python', 'JS', 'Ruby'],
+	'role': 'Web developer',
+	'contacts': {
+		'email': 'aerosmith3430@gmail.com',
+		'mobile': '503-516-xxxx',
+		'github': 'http://www.github.com/aerosmith3430',
+		'location': 'Gresham, OR'
 	},
-	"biopic" : "images/fry.jpg",
-	"welcomeMessage" : "Taking classes to transition into web development."
+	'biopic' : 'images/fry.jpg',
+	'welcomeMessage' : 'Taking classes to transition into web development.'
 };
 
 // Work history JSON object
 var work = {
-	"jobs": [
+	'jobs': [
 		{
-			"employer": "Vanport",
-			"url": "http://www.vanport-international.com/en/",
-			"title": "Accountant",
-			"location": "Boring, OR",
-			"dates": "2005-present",
-			"description": "Accountant for $100M wood products business with Canadian subsidiary and Japan as main market."
+			'employer': 'Vanport',
+			'url': 'http://www.vanport-international.com/en/',
+			'title': 'Accountant',
+			'location': 'Boring, OR',
+			'dates': '2005-present',
+			'description': 'Accountant for $100M wood products business with Canadian subsidiary and Japan as main market.'
 		},
 		{
-			"employer": "Morrison Center",
-			"url": "https://www.morrisonkids.org/",
-			"title": "GL Accountant",
-			"location": "Portland, OR",
-			"dates": "1999-2005",
-			"description": "Accounting assistant for non-profit children’s services agency with offices and programs throughout the Portland metro area."
+			'employer': 'Morrison Center',
+			'url': 'https://www.morrisonkids.org/',
+			'title': 'GL Accountant',
+			'location': 'Portland, OR',
+			'dates': '1999-2005',
+			'description': 'Accounting assistant for non-profit children’s services agency with offices and programs throughout the Portland metro area.'
 		}
 	]
 };
 
 // Project history JSON object
 var projects = {
-	"projects": [
+	'projects': [
 		{
-			"title": "Movie website",
-			"dates": "November 2016",
-			"description": "Static website listing my favorite movies generated from a Python file.",
-			"images": ["images/movie_website.png"]
+			'title': 'Movie website',
+			'dates': 'November 2016',
+			'description': 'Static website listing my favorite movies generated from a Python file.',
+			'images': ['images/movie_website.png']
 		},
 		{
-			"title": "Quiz",
-			"dates": "October 2016",
-			"description": "A fill in the blank quiz to help learn Python terminology.",
-			"images": ["images/quiz.png"]
+			'title': 'Quiz',
+			'dates': 'October 2016',
+			'description': 'A fill in the blank quiz to help learn Python terminology.',
+			'images': ['images/quiz.png']
 		},
 		{
-			"title": "Travel blog",
-			"dates": "October 2016",
-			"description": "Travel blog demostrating knowledge of HTML and CSS.",
-			"images": ["images/travel_blog.png"]
+			'title': 'Travel blog',
+			'dates': 'October 2016',
+			'description': 'Travel blog demostrating knowledge of HTML and CSS.',
+			'images': ['images/travel_blog.png']
 		}
 	]
 };
 
 // Education history JSON object
 var education = {
-	"schools": [
+	'schools': [
 		{
-			"name": "Southern Oregon University",
-			"degree": "Bachelor's of Science",
-			"dates": "1995 - 1999",
-			"location": "Ashland, OR",
-			"major": "Accounting",
-			"url": "http://www.sou.edu"
+			'name': 'Southern Oregon University',
+			'degree': 'Bachelor of Science',
+			'dates': '1995 - 1999',
+			'location': 'Ashland, OR',
+			'major': 'Accounting',
+			'url': 'http://www.sou.edu'
 		}
 	],
-	"onlineCourses": [
+	'onlineCourses': [
 		{
-			"title": "Intro to Programming Nanodegree",
-			"school": "Udacity",
-			"dates": "October 2016-present",
-			"url": "http://www.udacity.com"
+			'title': 'Intro to Programming Nanodegree',
+			'school': 'Udacity',
+			'dates': 'October 2016-present',
+			'url': 'http://www.udacity.com'
 		},
 		{
-			"title": "Skillcrush Front-End Developer Blueprint",
-			"school": "Skillcrush",
-			"dates": "July 2016-present",
-			"url": "http://www.skillcrush.com"
+			'title': 'Skillcrush Front-End Developer Blueprint',
+			'school': 'Skillcrush',
+			'dates': 'July 2016-present',
+			'url': 'http://www.skillcrush.com'
 		},
 		{
-			"title": "Learn.co Ruby programs",
-			"school": "Flatiron School",
-			"dates": "July 2016",
-			"url": "http://www.flatiron.com"
+			'title': 'Learn.co Ruby programs',
+			'school': 'Flatiron School',
+			'dates': 'July 2016',
+			'url': 'http://www.flatiron.com'
 		}
 	]
 };
